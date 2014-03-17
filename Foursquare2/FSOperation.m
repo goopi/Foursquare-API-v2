@@ -54,7 +54,7 @@
                 error = result;
             } else if ([result valueForKeyPath:@"meta.errorDetail"]) {
                 NSString *detail = [result valueForKeyPath:@"meta.errorDetail"];
-                NSDictionary *userInfo = @{NSLocalizedDescriptionKey:detail};
+                NSDictionary *userInfo = @{NSLocalizedDescriptionKey: detail, @"response": result[@"response"]};
                 error = [NSError errorWithDomain:@"Foursquare2"
                                             code:[result[@"meta"][@"code"] integerValue]
                                         userInfo:userInfo];
